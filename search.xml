@@ -5,8 +5,8 @@
     
     <entry>
       <title>文件上传</title>
-      <link href="/2025/12/26/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/"/>
-      <url>/2025/12/26/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/</url>
+      <link href="/2026/01/10/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/"/>
+      <url>/2026/01/10/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/</url>
       
         <content type="html"><![CDATA[<p>文件上传总结:<a href="https://www.anquanke.com/post/id/164561">https://www.anquanke.com/post/id/164561</a></p><h3 id="文件上传可解析后缀"><a href="#文件上传可解析后缀" class="headerlink" title="文件上传可解析后缀"></a><strong>文件上传可解析后缀</strong></h3><p><strong>asp&#x2F;aspx</strong></p><table><thead><tr><th><code>1</code></th><th><code>asp,aspx,asa,asax,ascx,ashx,asmx,cer,aSp,aSpx,aSa,aSax,aScx,aShx,aSmx,cEr</code></th></tr></thead></table><p><strong>php</strong></p><table><thead><tr><th><code>1</code></th><th><code>php,php5,php4,php3,php2,pHp,pHp5,pHp4,pHp3,pHp2,html,htm,phtml,pht,Html,Htm,pHtml</code></th></tr></thead></table><p><strong>jsp</strong></p><table><thead><tr><th><code>1</code></th><th><code>jsp,jspa,jspx,jsw,jsv,jspf,jtml,jSp,jSpx,jSpa,jSw,jSv,jSpf,jHtml</code></th></tr></thead></table><p>文件上传文件头绕过</p>]]></content>
       
