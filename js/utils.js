@@ -811,10 +811,12 @@ const anzhiyu = {
   // 音乐节目切换背景
   changeMusicBg: function (isChangeBg = true) {
     const anMusicBg = document.getElementById("an_music_bg");
+    if (!anMusicBg) return;
 
     if (isChangeBg) {
       // player listswitch 会进入此处
       const musiccover = document.querySelector("#anMusic-page .aplayer-pic");
+      if (!musiccover) return;
       anMusicBg.style.backgroundImage = musiccover.style.backgroundImage;
     } else {
       // 第一次进入，绑定事件，改背景
@@ -848,10 +850,11 @@ const anzhiyu = {
     const userId = "8152976493";
     const userServer = "netease";
     const anMusicPageMeting = document.getElementById("anMusic-page-meting");
+    if (!anMusicPageMeting) return;
     if (urlParams.get("id") && urlParams.get("server")) {
       const id = urlParams.get("id");
       const server = urlParams.get("server");
-      anMusicPageMeting.innerHTML = `<meting-js id="${id}" server=${server} type="playlist" type="playlist" mutex="true" preload="auto" theme="var(--anzhiyu-main)" order="list" list-max-height="calc(100vh - 169px)!important"></meting-js>`;
+      anMusicPageMeting.innerHTML = `<meting-js id="${id}" server="${server}" type="playlist" mutex="true" preload="auto" theme="var(--anzhiyu-main)" order="list" list-max-height="calc(100vh - 169px)!important"></meting-js>`;
     } else {
       anMusicPageMeting.innerHTML = `<meting-js id="${userId}" server="${userServer}" type="playlist" mutex="true" preload="auto" theme="var(--anzhiyu-main)" order="list" list-max-height="calc(100vh - 169px)!important"></meting-js>`;
     }
@@ -862,6 +865,7 @@ const anzhiyu = {
     if (document.getElementById("todayCard")) {
       document.getElementById("todayCard").classList.add("hide");
       const topGroup = document.querySelector(".topGroup");
+      if (!topGroup) return;
       const recentPostItems = topGroup.querySelectorAll(".recent-post-item");
       recentPostItems.forEach(item => {
         item.style.display = "flex";
@@ -872,11 +876,17 @@ const anzhiyu = {
   // 监听音乐背景改变
   addEventListenerMusic: function () {
     const anMusicPage = document.getElementById("anMusic-page");
+    if (!anMusicPage || anMusicPage.dataset.eventsBound === "1") return;
+    const metingNode = anMusicPage.querySelector("meting-js");
+    if (!metingNode || !metingNode.aplayer) return;
     const aplayerIconMenu = anMusicPage.querySelector(".aplayer-info .aplayer-time .aplayer-icon-menu");
     const anMusicBtnGetSong = anMusicPage.querySelector("#anMusicBtnGetSong");
     const anMusicRefreshBtn = anMusicPage.querySelector("#anMusicRefreshBtn");
     const anMusicSwitchingBtn = anMusicPage.querySelector("#anMusicSwitching");
-    const metingAplayer = anMusicPage.querySelector("meting-js").aplayer;
+    const metingAplayer = metingNode.aplayer;
+    const menuMask = document.getElementById("menu-mask");
+    if (!aplayerIconMenu || !anMusicBtnGetSong || !anMusicRefreshBtn || !anMusicSwitchingBtn || !menuMask) return;
+    anMusicPage.dataset.eventsBound = "1";
     //初始化音量
     metingAplayer.volume(0.8, true);
     metingAplayer.on("loadeddata", function () {
@@ -884,21 +894,21 @@ const anzhiyu = {
     });
 
     aplayerIconMenu.addEventListener("click", function () {
-      document.getElementById("menu-mask").style.display = "block";
-      document.getElementById("menu-mask").style.animation = "0.5s ease 0s 1 normal none running to_show";
+      menuMask.style.display = "block";
+      menuMask.style.animation = "0.5s ease 0s 1 normal none running to_show";
       anMusicPage.querySelector(".aplayer.aplayer-withlist .aplayer-list").style.opacity = "1";
     });
 
     function anMusicPageMenuAask() {
-      if (window.location.pathname != "/music/") {
-        document.getElementById("menu-mask").removeEventListener("click", anMusicPageMenuAask);
+      if (window.location.pathname !== "/music/") {
+        menuMask.removeEventListener("click", anMusicPageMenuAask);
         return;
       }
 
       anMusicPage.querySelector(".aplayer-list").classList.remove("aplayer-list-hide");
     }
 
-    document.getElementById("menu-mask").addEventListener("click", anMusicPageMenuAask);
+    menuMask.addEventListener("click", anMusicPageMenuAask);
 
     // 监听增加单曲按钮
     anMusicBtnGetSong.addEventListener("click", () => {
@@ -1009,14 +1019,15 @@ const anzhiyu = {
   },
   // 监听按键
   toPage: function () {
-    var toPageText = document.getElementById("toPageText"),
-      toPageButton = document.getElementById("toPageButton"),
-      pageNumbers = document.querySelectorAll(".page-number"),
-      lastPageNumber = Number(pageNumbers[pageNumbers.length - 1].innerHTML),
-      pageNumber = Number(toPageText.value);
+    const toPageText = document.getElementById("toPageText");
+    const toPageButton = document.getElementById("toPageButton");
+    const pageNumbers = document.querySelectorAll(".page-number");
+    if (!toPageText || !toPageButton || pageNumbers.length === 0) return;
+    const lastPageNumber = Number(pageNumbers[pageNumbers.length - 1].textContent);
+    const pageNumber = Number(toPageText.value);
 
     if (!isNaN(pageNumber) && pageNumber >= 1 && Number.isInteger(pageNumber)) {
-      var url = "/page/" + (pageNumber > lastPageNumber ? lastPageNumber : pageNumber) + "/";
+      const url = "/page/" + (pageNumber > lastPageNumber ? lastPageNumber : pageNumber) + "/";
       toPageButton.href = pageNumber === 1 ? "/" : url;
     } else {
       toPageButton.href = "javascript:void(0);";
@@ -1030,6 +1041,7 @@ const anzhiyu = {
   // 修改body的type类型以适配css
   setValueToBodyType: function () {
     const input = document.getElementById("page-type"); // 获取input元素
+    if (!input) return;
     const value = input.value; // 获取input的value值
     document.body.dataset.type = value; // 将value值赋值到body的type属性上
   },
@@ -1152,8 +1164,9 @@ const anzhiyu = {
   // 创建二维码
   qrcodeCreate: function () {
     if (document.getElementById("qrcode")) {
+      if (typeof QRCode !== "function") return;
       document.getElementById("qrcode").innerHTML = "";
-      var qrcode = new QRCode(document.getElementById("qrcode"), {
+      new QRCode(document.getElementById("qrcode"), {
         text: window.location.href,
         width: 250,
         height: 250,
