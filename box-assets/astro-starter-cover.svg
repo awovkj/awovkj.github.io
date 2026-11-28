@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">Astro 官方入门模板</title>
+  <desc id="desc">蓝黄色复古风格的 Astro 网站模板封面</desc>
+  <defs>
+    <pattern id="dots" width="24" height="24" patternUnits="userSpaceOnUse">
+      <circle cx="4" cy="4" r="2.5" fill="#141414" opacity=".14"/>
+    </pattern>
+  </defs>
+  <rect width="960" height="540" fill="#7cb7ff"/>
+  <rect width="960" height="540" fill="url(#dots)"/>
+  <circle cx="86" cy="74" r="48" fill="#ff8fab" stroke="#141414" stroke-width="7"/>
+  <path d="M844 60h84v84h-84z" fill="#ffd23f" stroke="#141414" stroke-width="7" transform="rotate(12 886 102)"/>
+  <path d="m92 414 18 38 41 4-31 27 9 40-37-22-36 22 9-40-31-27 41-4z" fill="#ffd23f" stroke="#141414" stroke-width="7" stroke-linejoin="round"/>
+  <rect x="157" y="98" width="660" height="376" rx="22" fill="#141414"/>
+  <rect x="143" y="82" width="660" height="376" rx="22" fill="#fff" stroke="#141414" stroke-width="7"/>
+  <path d="M143 104a22 22 0 0 1 22-22h616a22 22 0 0 1 22 22v54H143z" fill="#ffd23f" stroke="#141414" stroke-width="7"/>
+  <circle cx="184" cy="121" r="11" fill="#ff5c5c" stroke="#141414" stroke-width="4"/>
+  <circle cx="220" cy="121" r="11" fill="#fff8e7" stroke="#141414" stroke-width="4"/>
+  <circle cx="256" cy="121" r="11" fill="#9be15d" stroke="#141414" stroke-width="4"/>
+  <rect x="318" y="103" width="434" height="36" rx="9" fill="#fff8e7" stroke="#141414" stroke-width="4"/>
+  <text x="343" y="128" fill="#6b6552" font-family="Arial,sans-serif" font-size="18" font-weight="700">astro.build</text>
+  <rect x="177" y="190" width="224" height="230" rx="13" fill="#141414"/>
+  <text x="205" y="246" fill="#fff" font-family="Arial,sans-serif" font-size="42" font-weight="900">Astro</text>
+  <text x="207" y="278" fill="#ffd23f" font-family="Arial,sans-serif" font-size="17" font-weight="800" letter-spacing="3">STARTER</text>
+  <path d="M208 316h148M208 340h116M208 364h137" stroke="#fff8e7" stroke-width="12" stroke-linecap="round" opacity=".72"/>
+  <rect x="433" y="190" width="336" height="68" rx="12" fill="#ff8fab" stroke="#141414" stroke-width="5"/>
+  <text x="459" y="233" fill="#141414" font-family="Arial,sans-serif" font-size="25" font-weight="900">BUILD YOUR SITE</text>
+  <rect x="433" y="280" width="160" height="140" rx="12" fill="#fff8e7" stroke="#141414" stroke-width="5"/>
+  <path d="m476 333-26 26 26 26M550 333l26 26-26 26M520 324l-18 70" fill="none" stroke="#141414" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="615" y="280" width="154" height="140" rx="12" fill="#9be15d" stroke="#141414" stroke-width="5"/>
+  <path d="M651 325h82M651 352h82M651 379h52" stroke="#141414" stroke-width="10" stroke-linecap="round"/>
+</svg>
